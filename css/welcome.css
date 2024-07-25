@@ -1,0 +1,44 @@
+#home-price {
+    width: 100%;
+    max-width: 415px;
+    background-color: rgb(246, 213, 49);
+}
+
+#price-product {
+    font-weight: bold;
+    color: rgb(33, 51, 104);
+}
+
+#price-per-box {
+    max-width: 85px;
+    font-weight: 500;
+}
+
+
+#order-now2 {
+    font-size: 0.7rem !important;
+    font-weight: bold;
+    background-color: rgb(33, 51, 104);
+    width: 100%;
+    max-width: 120px;
+    top: 95% !important;
+    left: 84% !important;
+}
+
+#order-now2:hover {
+    color: rgb(33, 51, 104) !important;
+    background-color: white !important;
+    box-shadow: inset 0 0 0 3px rgb(33, 51, 104) !important;
+}
+
+#see-review {
+    color: rgb(33, 51, 104);
+    font-weight: bold;
+    background-color: rgb(246, 213, 49);
+}
+
+#see-review:hover {
+    color: rgb(33, 51, 104) !important;
+    background-color: white !important;
+    box-shadow: inset 0 0 0 3px rgb(33, 51, 104) !important;
+}
