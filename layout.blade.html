@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/icons8-contact-lenses-16.png" />
 
         <!-- CSS Link -->
         <!-- <link rel="stylesheet" href="{{asset('css/header.css')}}"> -->
@@ -30,17 +30,17 @@
 
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container px-5 d-flex align-content-center flex-wrap">
-                <a class="navbar-brand fs-1" href="#!">Contact.Lenses</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3">
+            <div class="container d-flex align-content-center flex-wrap">
+                <a class="navbar-brand fs-2" href="#!" id="logo-brand">Con<span id="logo-highlight">tact</span>.Lenses</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link fs-6 p-3 active" aria-current="page" href="#!">Easy pack videos</a></li>
-                        <li class="nav-item"><a class="nav-link fs-6 p-3" href="#!">Our Lenses</a></li>
-                        <li class="nav-item"><a class="nav-link fs-6 p-3" href="#!">Why Switch</a></li>
-                        <li class="nav-item"><a class="nav-link fs-6 p-3" href="#!">Our Lab</a></li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item"><a class="nav-link fw-light fs-6 p-3 active" aria-current="page" href="#!">Easy pack videos</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link fw-light fs-6 p-3" href="#!">Our Lenses</a></li> -->
+                        <li class="nav-item"><a class="nav-link fw-light fs-6 p-3" href="#!">Why Switch</a></li>
+                        <li class="nav-item"><a class="nav-link fw-light fs-6 p-3" href="#!">Our Lab</a></li>
+                        <li class="nav-item dropdown fw-light">
                             <a class="nav-link fs-6 dropdown-toggle p-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Customer Care</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
@@ -49,7 +49,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a id="order-now" class="nav-link fs-6 rounded-pill py-3 px-5 text-body-secondary text-center" href="#!">Order Now </a>
+                            <a id="order-now" class="nav-link fs-6 rounded-pill py-3 px-4 text-body-secondary text-center" href="#!">Order Now </a>
                         </li>
                     </ul>
                 </div>
@@ -67,10 +67,10 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
-        <script> 
-            $(function(){
-              $("#page-content").load("welcome.blade.html"); 
+        <script>
+            $(document).ready(function() {
+                $("#page-content").load("welcome.blade.html");
             });
-        </script> 
+        </script>
     </body>
 </html>

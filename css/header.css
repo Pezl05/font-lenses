@@ -5,6 +5,14 @@
     font-style: normal;
 }
 
+#logo-brand {
+    color: rgb(243, 208, 33);
+}
+
+#logo-highlight {
+    color: white;
+}
+
 #navbarSupportedContent > ul > li:not(:last-child):not(:nth-last-child(2)) a.nav-link:hover {
     text-decoration: underline;
     color: rgb(243, 208, 33);
