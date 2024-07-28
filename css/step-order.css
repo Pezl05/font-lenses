@@ -1,3 +1,7 @@
+#quiz-account > div > .shadow {
+    height: 25rem;
+}
+
 #step-1 {
     width: 3rem; 
     height:3rem;
@@ -33,7 +37,11 @@
     background: gold;
 }
 
-#btn-continue {
+.select-lenses {
+    background-color: gainsboro;
+}
+
+#btn-reOrder {
     width: 100%;
     max-width: 250px;
     color: white;
@@ -41,9 +49,22 @@
     background-color: rgb(33, 51, 104);
 }
 
-#btn-continue:hover {
+#btn-reOrder:hover {
     color: rgb(33, 51, 104) !important;
     background-color: white !important;
     box-shadow: inset 0 0 0 3px rgb(33, 51, 104) !important;
 }
 
+#btn-continue  {
+    width: 100%;
+    max-width: 250px;
+    color: rgb(33, 51, 104);
+    font-weight: bold;
+    background-color: rgb(246, 213, 49);
+}
+
+#btn-continue:hover {
+    color: rgb(33, 51, 104) !important;
+    background-color: white !important;
+    box-shadow: inset 0 0 0 3px rgb(33, 51, 104) !important;
+}
