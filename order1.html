@@ -238,25 +238,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $('.select-lenses').hover(
-            function () {
-                $(this).has('input.form-check-input:not(:checked)').children("div:first").addClass("select-lenses-active");
-            }, function () {
-                $(this).has('input.form-check-input:not(:checked)').children("div:first").removeClass("select-lenses-active");
-            }
-        );
+        $(document).ready(function() {
+            $('.select-lenses').hover(
+                function () {
+                    $(this).has('input.form-check-input:not(:checked)').children("div:first").addClass("select-lenses-active");
+                }, function () {
+                    $(this).has('input.form-check-input:not(:checked)').children("div:first").removeClass("select-lenses-active");
+                }
+            );
 
-        $('.select-lenses').click(
-            function () {
-                $(this).find('input.form-check-input').prop("checked", true);
-                $(this).find('input.form-check-input').change();
-            }
-        );
+            $('.select-lenses').click(
+                function () {
+                    $(this).find('input.form-check-input').prop("checked", true);
+                    $(this).find('input.form-check-input').change();
+                }
+            );
 
-        $(".form-check-input").on("change", function () {
-            let $selectActive = "select-" + $(this).val();
-            $('.select-lenses-active').removeClass('select-lenses-active');
-            $('#'+$selectActive).addClass("select-lenses-active");
+            $(".form-check-input").on("change", function () {
+                let $selectActive = "select-" + $(this).val();
+                $('.select-lenses-active').removeClass('select-lenses-active');
+                $('#'+$selectActive).addClass("select-lenses-active");
+            });
         });
     </script>
 

@@ -189,38 +189,55 @@
                         <!-- Form 2 -->
                         <div class="container shadow p-3 p-xl-5 mb-5 fw-bold">
                             <p class="fw-bold fs-4"> Personal details </p>
-                            <div class="row g-3 mb-3">
-                                <div class="col-md-4 mb-3">
+                            <div class="row g-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="form-first-name" class="form-label">First name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="form-first-name">
                                 </div>
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="form-last-name" class="form-label">Last name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="form-last-name">
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                    <label for="form-month" class="form-label">
-                                        Date of birth <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="date" class="form-control" id="form-month">
-                                </div>
                             </div>  
+                            <div class="d-flex flex-row mb-3 flex-wrap">
+                                <div class="row g-2 col-12 col-lg-6">
+                                    <p class="mb-1">Date of birth <span class="text-danger">*</span></p>
+                                    <div class="col-4 mt-0">
+                                        <label for="form-month" class="form-label">
+                                            Month
+                                        </label>
+                                        <input type="number " class="form-control" id="form-month">
+                                    </div>
+                                    <div class="col-4 mt-0">
+                                        <label for="form-day" class="form-label">
+                                            Day
+                                        </label>
+                                        <input type="number" class="form-control" id="form-day">
+                                    </div>
+                                    <div class="col-4 mt-0">
+                                        <label for="form-year" class="form-label">
+                                            Year
+                                        </label>
+                                        <input type="number" class="form-control" id="form-year">
+                                    </div>
+                                </div>
+                            </div> 
                             <p class="fw-bold fs-4"> Tell us when you would like an email to remind you to re-order. <span class="text-danger">*</span> </p>
                             <div class="row p-3">
-                                <div class="col-10 row bg-light mx-auto mx-lg-0 p-4">
-                                    <div class="col-md-3">
+                                <div class="col-12 row bg-light mx-auto mx-lg-0 p-4">
+                                    <div class="col-xl-3">
                                         <input type="radio" class="btn-check" name="remind" id="remind-no" autocomplete="off">
                                         <label class="btn btn-outline-warning rounded-pill fw-bold text-dark border-0 px-5 py-3 w-100" for="remind-no">No reminder</label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-xl-3">
                                         <input type="radio" class="btn-check" name="remind" id="remind-1m" autocomplete="off">
                                         <label class="btn btn-outline-warning rounded-pill fw-bold text-dark border-0 px-5 py-3 w-100" for="remind-1m">1 month</label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-xl-3">
                                         <input type="radio" class="btn-check" name="remind" id="remind-3m" autocomplete="off">
                                         <label class="btn btn-outline-warning rounded-pill fw-bold text-dark border-0 px-5 py-3 w-100" for="remind-3m">3 month</label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-xl-3">
                                         <input type="radio" class="btn-check" name="remind" id="remind-6m" autocomplete="off">
                                         <label class="btn btn-outline-warning rounded-pill fw-bold text-dark border-0 px-5 py-3 w-100" for="remind-6m">6 month</label>
                                     </div>
@@ -244,27 +261,81 @@
                 <p class="m-0 text-center text-white">Copyright &copy; Your Website 2024</p>
             </div>
         </footer>
-
+        
     </div>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $("#both-eyes").on("change", function () {
-            if($(this).is(':checked')){
-                $('.both-eye').removeClass('d-none')
-                $('.each-eye').addClass('d-none')
+        $(document).ready(function() {
+            var date_now = new Date();  
 
-                $('.each-eye').find('select').prop('disabled', true);
-                $('.both-eye').find('select').prop('disabled', false);
-            }else{
-                $('.each-eye').removeClass('d-none')
-                $('.both-eye').addClass('d-none')
-
-                $('.both-eye').find('select').prop('disabled', true);
-                $('.each-eye').find('select').prop('disabled', false);
+            // Input Does not match the specified requirements.
+            function DateIncorrect($element) {
+                let value = parseInt($element.val());
+                let min_value = parseInt($element.attr('min'));
+                let max_value = parseInt($element.attr('max'));
+                if(value > max_value){
+                    $element.val(max_value);
+                }else if(value < min_value){
+                    $element.val(min_value);
+                }
             }
+
+            $("#form-month").attr({
+                "max" : 12, 
+                "min" : 1
+            });
+
+            $("#form-month").on("change", function () {
+                DateIncorrect($(this));
+                
+                // The number of days has changed.
+                let year_value = ( $("#form-year").is('empty') ? date_now.getFullYear() : parseInt($("#form-year").val()) );
+                let dayInMonth = new Date(year_value, $(this).val(), 0).getDate();
+                $("#form-day").attr({
+                    "max" : dayInMonth, 
+                    "min" : 1
+                });
+
+                $("#form-day").trigger("change")
+            });
+
+            $("#form-year").attr({
+                "max" : date_now.getFullYear(),   
+                "min" : 1900
+            });
+
+            $("#form-year").on("change", function () {
+                DateIncorrect($(this));
+                $("#form-month").trigger("change")
+            });
+
+            $("#form-day").attr({
+                "max" : 31, 
+                "min" : 1
+            });
+
+            $("#form-day").on("change", function () {
+                DateIncorrect($(this));
+            });
+
+            $("#both-eyes").on("change", function () {
+                if($(this).is(':checked')){
+                    $('.both-eye').removeClass('d-none')
+                    $('.each-eye').addClass('d-none')
+
+                    $('.each-eye').find('select').prop('disabled', true);
+                    $('.both-eye').find('select').prop('disabled', false);
+                }else{
+                    $('.each-eye').removeClass('d-none')
+                    $('.both-eye').addClass('d-none')
+
+                    $('.both-eye').find('select').prop('disabled', true);
+                    $('.each-eye').find('select').prop('disabled', false);
+                }
+            });
         });
     </script>
 

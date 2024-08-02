@@ -315,26 +315,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        var shipping_standard = parseInt($('#price-standard').html());
-        var shpping_dhl = parseInt($('#price-dhl').html());; 
-        var lenses_price = parseInt($('#lenses-price').html());
-        
-        $('#total-price').html(lenses_price + shipping_standard);
+         $(document).ready(function() {
+            var shipping_standard = parseInt($('#price-standard').html());
+            var shpping_dhl = parseInt($('#price-dhl').html());; 
+            var lenses_price = parseInt($('#lenses-price').html());
+            
+            $('#total-price').html(lenses_price + shipping_standard);
 
-        $("#same-address").on("change", function () {
-            if($(this).is(':checked')){
-                $('.billing-address').addClass('d-none');
-            }else{
-                $('.billing-address').removeClass('d-none');
-            }
-        });
+            $("#same-address").on("change", function () {
+                if($(this).is(':checked')){
+                    $('.billing-address').addClass('d-none');
+                }else{
+                    $('.billing-address').removeClass('d-none');
+                }
+            });
 
-        $("input[name='shipping-method']").on("change", function () {
-            if($(this).val() == "dhl"){
-                $('#total-price').html(lenses_price + shpping_dhl);
-            }else{
-                $('#total-price').html(lenses_price + shipping_standard);
-            }
+            $("input[name='shipping-method']").on("change", function () {
+                if($(this).val() == "dhl"){
+                    $('#total-price').html(lenses_price + shpping_dhl);
+                }else{
+                    $('#total-price').html(lenses_price + shipping_standard);
+                }
+            });
         });
     </script>
 
