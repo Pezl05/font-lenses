@@ -72,3 +72,7 @@
 label[for^='remind-']:hover {
     background-color: rgb(255, 219, 110) !important;
 }
+
+#summary{
+    top: 20px;
+}
